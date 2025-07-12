@@ -1,21 +1,36 @@
 
 ---
 spring:
-  config.activate.on-profile: default
-  sql.init.platform: h2
+  config:
+    activate:
+      on-profile: default
+  sql:
+    init:
+      platform: h2
 cds:
-  data-source.auto-config.enabled: false
   security:
     mock:
-      users:
-        - name: viewer
-          roles:
-            - viewer
-
-        - name: admin
-          roles:
-            - admin
-
+      users[1]:
+        roles:
+        - admin
+        name: admin
+      users[0]:
+        roles:
+        - viewer
+        name: viewer
+  data-source:
+    auto-config:
+      enabled: false
+  remote:
+    services:
+      '[Employment]':
+        destination:
+          name: Employment
+        type: odata-v2
+      '[Candidate]':
+        destination:
+          name: Candidate
+        type: odata-v2
 ---
 spring:
   config.activate.on-profile: cloud

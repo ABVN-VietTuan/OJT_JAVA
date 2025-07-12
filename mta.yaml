@@ -75,7 +75,7 @@ modules:
           build-result: resources
           requires:
               - artifacts:
-                    - frontend.zip
+                    - OJTJAVAfrontend.zip
                 name: OJTfrontend
                 target-path: resources/
     - name: OJTfrontend

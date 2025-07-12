@@ -13,5 +13,19 @@
     "undeploy": "cf undeploy OJT_JAVA_2 --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "require": {
+      "sfEmployee": {
+        "kind": "odata-v2",
+        "model": "srv/external/Employment",
+        "[development]": {
+          "credentials": {
+            "requestTimeout": 30000,
+            "destination": "EXTERNAL_API"
+          }
+        }
+      }
+    }
   }
 }

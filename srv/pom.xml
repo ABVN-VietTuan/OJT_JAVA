@@ -64,6 +64,12 @@
 			<artifactId>spring-xsuaa</artifactId>
 			<version>3.6.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.sap.cds</groupId>
+			<artifactId>cds-feature-remote-odata</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>

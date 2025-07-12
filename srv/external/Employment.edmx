@@ -1,0 +1,53 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:atom="http://www.w3.org/2005/Atom" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:sf="http://www.successfactors.com/edm/sf" xmlns:sap="http://www.successfactors.com/edm/sap" Namespace="SFODataSet">
+<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+<EntitySet Name="EmpEmployment" EntityType="SFOData.EmpEmployment" sap:label="Employment Details" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:deletable="false">
+<Documentation>
+<Summary>EmpEmployment</Summary>
+<LongDescription>Contains all the employment related information for an employee.</LongDescription>
+<sap:tagcollection>
+<sap:tag>Employee Central (EC)</sap:tag>
+<sap:tag>EC - Employment Information</sap:tag>
+</sap:tagcollection>
+</Documentation>
+</EntitySet>
+</EntityContainer>
+</Schema>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:sf="http://www.successfactors.com/edm/sf" xmlns:sap="http://www.successfactors.com/edm/sap" Namespace="SFOData">
+<EntityType Name="EmpEmployment">
+<Key>
+<PropertyRef Name="personIdExternal"/>
+<PropertyRef Name="userId"/>
+</Key>
+<Property Name="assignmentClass" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" MaxLength="128" sap:label="Employment Assignment Type"/>
+<Property Name="assignmentIdExternal" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Assignment ID"/>
+<Property Name="createdBy" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" MaxLength="100" sap:label="Created By"/>
+<Property Name="createdDateTime" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Created Date Time"/>
+<Property Name="createdOn" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:display-format="Date" sap:label="Created On"/>
+<Property Name="customDate3" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:display-format="Date" sap:label="Retirement date2"/>
+<Property Name="customString1" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="true" MaxLength="256" sap:picklist="yesNo" sap:label="customString1"/>
+<Property Name="customString10" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="false" MaxLength="256" sap:picklist="OFB_Type" sap:label="Offboarding User"/>
+<Property Name="employmentId" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="employmentId"/>
+<Property Name="endDate" Type="Edm.DateTime" Nullable="true" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:display-format="Date" sap:label="Termination Date"/>
+<Property Name="hiringNotCompleted" Type="Edm.Boolean" Nullable="false" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="hiringNotCompleted"/>
+<Property Name="includeAllRecords" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="false" sap:sortable="false" sap:filterable="true" sap:label="Include All Records"/>
+<Property Name="isContingentWorker" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Contingent Worker"/>
+<Property Name="isECRecord" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="true" sap:label="isECRecord"/>
+<Property Name="jobNumber" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="false" sap:sortable="true" sap:filterable="true" sap:label="Employment Id"/>
+<Property Name="lastDateWorked" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:display-format="Date" sap:label="Last Date Worked"/>
+<Property Name="lastModifiedBy" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" MaxLength="100" sap:label="Last Modified By"/>
+<Property Name="lastModifiedDateTime" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Last Modified Date Time"/>
+<Property Name="lastModifiedOn" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:display-format="Date" sap:label="Last Modified On"/>
+<Property Name="okToRehire" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="OK to Rehire"/>
+<Property Name="originalStartDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="true" sap:display-format="Date" sap:label="Original Start Date"/>
+<Property Name="personIdExternal" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" MaxLength="100" sap:label="Person ID External"/>
+<Property Name="regretTermination" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Regret Termination"/>
+<Property Name="seniorityDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="true" sap:display-format="Date" sap:label="Seniority Start Date"/>
+<Property Name="serviceDate" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:display-format="Date" sap:label="Service Date"/>
+<Property Name="startDate" Type="Edm.DateTime" Nullable="true" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:display-format="Date" sap:label="Hire Date"/>
+<Property Name="userId" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="false" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" MaxLength="100" sap:label="User ID"/>
+</EntityType>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

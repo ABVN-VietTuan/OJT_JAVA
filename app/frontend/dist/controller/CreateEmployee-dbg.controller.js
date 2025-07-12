@@ -13,7 +13,7 @@ sap.ui.define([
                 firstName: "",
                 lastName: "",
                 email: "",
-                gender: "",
+                gender: "Male",
                 dateOfBirth: "",
                 hireDate: "",
                 role_ID: "",
@@ -94,31 +94,18 @@ sap.ui.define([
                 const oView = this.getView();
                 const oNewData = oView.getModel("newEmployee").getData();
 
-                // let baseSalary = 3000;
-                // if (oNewData.role_ID) {
-                //     baseSalary += 500;
-                // }
-                // if (oNewData.department_ID) {
-                //     baseSalary += 200;
-                // }
-                const employeeId = oNewData.ID || oNewData.id;
-                // Build action call
-                const oContext = oModel.bindContext("/calculateSalary(...)",
-                    undefined,
-                    {
-                        $select: "value" // To get the result (Decimal)
-                    }
-                );
+                let baseSalary = 3000;
+                if (oNewData.role_ID) {
+                    baseSalary += 500;
+                }
+                if (oNewData.department_ID) {
+                    baseSalary += 200;
+                }
 
-                // Execute action with parameter
-                await oContext.setParameter("employeeId", employeeId);
-                await oContext.execute();
-
-                const salary = oContext.getBoundContext().getObject();
                 // Update model so UI refreshes
-                oView.getModel("newEmployee").setProperty("/salary", salary.value);
+                oView.getModel("newEmployee").setProperty("/salary", baseSalary);
 
-                MessageToast.show("Salary calculated: $$" + salary.value);
+                MessageToast.show("Salary calculated: $" + baseSalary);
             } catch (oError) {
                 console.error("Salary calculation failed:", oError);
                 MessageBox.error("Failed to calculate salary.");

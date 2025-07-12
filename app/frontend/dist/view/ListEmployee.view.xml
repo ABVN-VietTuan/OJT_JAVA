@@ -109,7 +109,7 @@
                                 class="btn"
                                 press=".onRemoveEmployee"
                                 icon="sap-icon://delete"
-                                visible="false"
+                                visible="{user>/isAdmin}"
                             />
                         </cells>
                     </ColumnListItem>
@@ -132,7 +132,7 @@
                     icon="sap-icon://add-employee"
                     text="Add new Employee"
                     press=".onAddEmployee"
-                    visible="false"
+                    visible="{user>/isAdmin}"
                 />
             </Toolbar>
         </footer>

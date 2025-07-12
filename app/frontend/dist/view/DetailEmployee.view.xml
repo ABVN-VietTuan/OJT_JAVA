@@ -31,21 +31,21 @@
             <!-- === Personal Information === -->
             <Label text="First Name" />
             <Input
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="firstName"
                 value="{employee>firstName}"
             />
 
             <Label text="Last Name" />
             <Input
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="lastName"
                 value="{employee>lastName}"
             />
 
             <Label text="Email" />
             <Input
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="email"
                 value="{employee>email}"
                 type="Email"
@@ -53,7 +53,7 @@
 
             <Label text="Gender" />
             <Select
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="gender"
                 selectedKey="{employee>gender}"
             >
@@ -75,7 +75,7 @@
 
             <Label text="Date of Birth" />
             <DatePicker
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="dob"
                 value="{employee>dateOfBirth}"
                 displayFormat="yyyy-MM-dd"
@@ -85,7 +85,7 @@
 
             <Label text="Hire Date" />
             <DatePicker
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="hireDate"
                 value="{employee>hireDate}"
                 displayFormat="yyyy-MM-dd"
@@ -96,7 +96,7 @@
             <!-- === Job Information === -->
             <Label text="Role" />
             <ComboBox
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="role"
                 items="{employee>/Roles}"
                 selectedKey="{employee>role_ID}"
@@ -110,7 +110,7 @@
 
             <Label text="Department" />
             <ComboBox
-                editable="{ui>/isAdmin}"
+                editable="{user>/isAdmin}"
                 id="department"
                 items="{employee>/Departments}"
                 selectedKey="{employee>department_ID}"
@@ -136,7 +136,7 @@
                     text="Calculate Salary"
                     icon="sap-icon://money-bills"
                     press=".onCalculateSalary"
-                    visible="{= ${userModel>/role} === 'Admin' }"
+                    visible="{user>/isAdmin}"
                 />
 
                 <Button

@@ -1,0 +1,58 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:atom="http://www.w3.org/2005/Atom" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:sf="http://www.successfactors.com/edm/sf" xmlns:sap="http://www.successfactors.com/edm/sap" Namespace="SFODataSet">
+<EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+<EntitySet Name="Candidate" EntityType="SFOData.Candidate" sap:label="Candidate" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:deletable="false">
+<Documentation>
+<Summary>Candidate</Summary>
+<LongDescription>The candidate entity allows a user to query, insert and update the candidate profile. The candidate entity contains core candidate profile data consisting of system, standard and custom fields. The metadata will show the standard and custom fields configured in the active template. If a field (standard or custom) is not configured in the template, then it will not show up in the metadata and not be a part of oData query. The system fields will always show up.</LongDescription>
+<sap:tagcollection>
+<sap:tag>Recruiting (RCM)</sap:tag>
+<sap:tag>RCM - Candidate</sap:tag>
+</sap:tagcollection>
+</Documentation>
+</EntitySet>
+</EntityContainer>
+</Schema>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:sf="http://www.successfactors.com/edm/sf" xmlns:sap="http://www.successfactors.com/edm/sap" Namespace="SFOData">
+<EntityType Name="Candidate">
+<Key>
+<PropertyRef Name="candidateId"/>
+</Key>
+<Property Name="address" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Address"/>
+<Property Name="agreeToPrivacyStatement" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Agreed to Privacy Statement"/>
+<Property Name="anonymized" Type="Edm.String" Nullable="false" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="true" sap:label="Anonymized Flag"/>
+<Property Name="anonymizedDateTime" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Anonymized Date Time"/>
+<Property Name="candidateId" Type="Edm.Int64" Nullable="false" sap:required="false" sap:creatable="false" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Candidate Id"/>
+<Property Name="candidateLocale" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Candidate Locale"/>
+<Property Name="cellPhone" Type="Edm.String" Nullable="true" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Mobile Number"/>
+<Property Name="city" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="District"/>
+<Property Name="consentToMarketing" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Consent To Marketing"/>
+<Property Name="contactEmail" Type="Edm.String" Nullable="true" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Email Address"/>
+<Property Name="country" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Country of Residence"/>
+<Property Name="creationDateTime" Type="Edm.DateTimeOffset" Nullable="false" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Creation Date"/>
+<Property Name="currentTitle" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Current Title"/>
+<Property Name="custSubDistrict" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Sub-District"/>
+<Property Name="dataPrivacyId" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Data Privacy Id"/>
+<Property Name="dateOfBirth" Type="Edm.DateTime" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:display-format="Date" sap:label="Date of Birth"/>
+<Property Name="dateofAvailability" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Date of Availability"/>
+<Property Name="externalCandidate" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="External Candidate"/>
+<Property Name="firstName" Type="Edm.String" Nullable="true" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="First Name"/>
+<Property Name="instr_RelevantSkill" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Relevant Skills"/>
+<Property Name="lastLoginDateTime" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Last login date"/>
+<Property Name="lastModifiedDateTime" Type="Edm.DateTimeOffset" Nullable="false" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Last Modified Date"/>
+<Property Name="lastName" Type="Edm.String" Nullable="true" sap:required="true" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Last Name"/>
+<Property Name="partnerMemberId" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Partner Member Id"/>
+<Property Name="partnerSource" Type="Edm.Int64" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Partner Source"/>
+<Property Name="password" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="false" sap:sortable="false" sap:filterable="false" sap:label="Password"/>
+<Property Name="primaryEmail" Type="Edm.String" Nullable="false" sap:required="true" sap:creatable="true" sap:updatable="false" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Primary Email"/>
+<Property Name="privacyAcceptDateTime" Type="Edm.DateTimeOffset" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Privacy Acceptence Date"/>
+<Property Name="publicIntranet" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Public Intranet"/>
+<Property Name="shareProfile" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Share Profile flag"/>
+<Property Name="usersSysId" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Users sys id"/>
+<Property Name="visibilityOption" Type="Edm.Boolean" Nullable="true" sap:required="false" sap:creatable="false" sap:updatable="false" sap:upsertable="false" sap:visible="true" sap:sortable="false" sap:filterable="false" sap:label="Visibility Option"/>
+<Property Name="zip" Type="Edm.String" Nullable="true" sap:required="false" sap:creatable="true" sap:updatable="true" sap:upsertable="true" sap:visible="true" sap:sortable="true" sap:filterable="true" sap:label="Zip Code"/>
+</EntityType>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>
