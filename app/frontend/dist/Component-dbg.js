@@ -12,7 +12,7 @@ sap.ui.define([
             ]
         },
 
-        async init() {
+        init() {
             // call the base component's init function
             UIComponent.prototype.init.apply(this, arguments);
 
@@ -21,10 +21,6 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
-
-            const userModel = await models.createUserModel();
-            console.log("Check user",userModel);
-            this.setModel(userModel, "user");
         }
     });
 });

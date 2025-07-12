@@ -4,13 +4,13 @@
   },
   "requires": {
     "[hybrid]": {
-        "db": "hana",
-        "auth": "xsuaa"
+      "db": "hana",
+      "auth": "xsuaa"
     },
     "[production]": {
-        "auth": "xsuaa",
-        "db": "hana"
+      "auth": "xsuaa",
+      "db": "hana"
     },
     "db": "hana"
-}
+  }
 }

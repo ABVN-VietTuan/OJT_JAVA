@@ -8,15 +8,32 @@ sap.ui.define([
 
     return Controller.extend("frontend.controller.ListEmployee", {
         onInit() {
+            let oData;
             const oRouter = this.getOwnerComponent().getRouter();
             oRouter.getRoute("ListEmployee").attachPatternMatched(this._onRouteMatched, this);
-            
-            // Try to get Model from Component: No use
-            const oModel = this.getOwnerComponent().getModel("user")
-            console.log(oModel);
-            // Try to get property: No use
-            const isAdmin = oModel.getProperty("/isAdmin");
+
+            const oUserModel = this.getOwnerComponent().getModel("user");
+            console.log(oUserModel);
+
+            // oUserModel.attachRequestCompleted(() => {
+            //     oData = oUserModel.getData();
+            //     console.log("User model data:", oData);
+            //     // Now safe to access
+            //     const isAdmin = oData?.scopes && oData?.scopes.some(s => s.includes("Admin"));
+            //     console.log("Check is Admin", isAdmin);
+
+            //     this.byId("submitBtn").setVisible(isAdmin);
+            //     this.byId("deleteBtn").setVisible(isAdmin);
+            // });
+            oData = oUserModel.getData();
+            console.log("User model data:", oData);
+            // Now safe to access
+            const isAdmin = oData?.scopes && oData?.scopes.some(s => s.includes("Admin"));
             console.log("Check is Admin", isAdmin);
+
+            this.byId("submitBtn").setVisible(isAdmin);
+            this.byId("deleteBtn").setVisible(isAdmin);
+
 
         },
         _onRouteMatched: function () {
@@ -35,6 +52,7 @@ sap.ui.define([
 
             // Use getProperty to extract the ID (adjust to match your actual ID field, probably just 'ID')
             const sEmployeeId = encodeURIComponent(oCtx.getProperty("ID"));
+            console.log("hello", sEmployeeId);
 
             // Navigate to the detail page with the selected EmployeeId as a parameter
             const oRouter = this.getOwnerComponent().getRouter();

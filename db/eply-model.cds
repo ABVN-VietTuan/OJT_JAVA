@@ -20,7 +20,7 @@ entity Employees : cuid {
   gender     : String(10);
   email      : String(100);
   hireDate   : Date;
-  salary     : Decimal(15,2); 
+  salary     : Double; 
   role       : Association to Roles;
   department : Association to Departments;
 }

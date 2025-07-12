@@ -1,0 +1,74 @@
+/* Enter your custom styles here */
+/* .header {
+    background-color: rgb(16, 16, 121) !important;
+}
+
+.header .btn {
+    border: 1px solid white;
+}
+
+.header .btn span span {
+    color: white !important;
+} */
+.header .header_left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem
+}
+.header .header_left .header_text{
+    margin-top: 0.3rem;
+    font-weight: bold;
+}
+
+.form .avatar {
+    width: 6rem;
+    margin-left: 20rem;
+}
+
+.form .gender{
+    margin-top: 2rem !important;
+}
+
+.body_header {
+    align-items: center;
+    margin: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.body_header .btn {
+    margin-left: 6rem;
+    height: 3rem;
+    border: 1px solid gray;
+}
+
+.body_header .btn span {
+    border: 0
+}
+
+.employee_body{
+    background-color: white !important;
+    padding: 1rem 3rem 1rem 0;
+    
+}
+
+.body_container {
+    display: flex;
+    justify-content: center;
+}
+
+.body_submit {
+    float: right;
+}
+
+.input_group1 {
+    display: flex !important;
+    align-items: center;
+}
+
+.employeeList_body{
+    background-color: white !important;
+    padding: 1rem 3rem 1rem 0;
+    margin: 1rem auto;
+}

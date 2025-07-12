@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/frontend/index.html",
+  "welcomeFile": "frontend/index.html",
   "authenticationMethod": "route",
   "logout": {
     "logoutEndpoint": "/app-logout",

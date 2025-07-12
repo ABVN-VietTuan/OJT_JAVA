@@ -6,8 +6,8 @@
   "repository": "<Add your repository here>",
   "devDependencies": {
     "@sap/cds-dk": "^9.0.4",
-    "rimraf": "^5.0.5",
-    "mbt": "^1.2.29"
+    "mbt": "^1.2.29",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
     "undeploy": "cf undeploy OJT_JAVA_2 --delete-services --delete-service-keys --delete-service-brokers",

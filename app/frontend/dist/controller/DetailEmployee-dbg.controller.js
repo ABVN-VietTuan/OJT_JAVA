@@ -5,19 +5,60 @@ sap.ui.define([
     "sap/m/MessageToast"
 ], function (Controller, History, MessageBox, MessageToast) {
     "use strict";
-    let employeeId;
-    return Controller.extend("frontend.controller.DetailEmployee", {
 
+    return Controller.extend("frontend.controller.DetailEmployee", {
         onInit: function () {
+            // let oData
+            console.log("hello");
+
             const oRouter = this.getOwnerComponent().getRouter();
             oRouter.getRoute("DetailEmployee").attachPatternMatched(this._onRouteMatched, this);
+
+            const oUserModel = this.getOwnerComponent().getModel("user");
+            console.log(oUserModel);
+
+            const oUIModel = new sap.ui.model.json.JSONModel({
+                isAdmin: false
+            });
+            this.getView().setModel(oUIModel, "ui");
+            // oUserModel.attachRequestCompleted(() => {
+            //     oData = oUserModel.getData();
+            //     console.log("User model data:", oData);
+            //     const isAdmin = oData?.scopes && oData?.scopes.some(s => s.includes("Admin"));
+            //     console.log("Check isAdmin detail",isAdmin);
+
+            //     // Directly set editable property
+            //     this.byId("email").setEditable(isAdmin);
+            //     this.byId("firstName").setEditable(isAdmin);
+            //     this.byId("lastName").setEditable(isAdmin);
+            //     this.byId("gender").setEditable(isAdmin);
+            //     this.byId("dob").setEditable(isAdmin);
+            //     this.byId("hireDate").setEditable(isAdmin);
+            //     this.byId("role").setEditable(isAdmin);
+            //     this.byId("department").setEditable(isAdmin);
+            //     this.byId("editbtn").setEditable(isAdmin);
+            // });
+            const oData = oUserModel.getData();
+            console.log("User model data:", oData);
+            const isAdmin = oData?.scopes && oData?.scopes.some(s => s.includes("Admin"));
+            console.log("Check isAdmin detail", isAdmin);
+            this.getView().getModel("ui").setProperty("/isAdmin", isAdmin);
+            // // Directly set editable property
+            // this.byId("email").setEditable(isAdmin);
+            // this.byId("firstName").setEditable(isAdmin);
+            // this.byId("lastName").setEditable(isAdmin);
+            // this.byId("gender").setEditable(isAdmin);
+            // this.byId("dob").setEditable(isAdmin);
+            // this.byId("hireDate").setEditable(isAdmin);
+            // this.byId("role").setEditable(isAdmin);
+            // this.byId("department").setEditable(isAdmin);
+            this.byId("editbtn").setVisible(isAdmin);
         },
 
         _onRouteMatched: function (oEvent) {
             const oView = this.getView();
             const oModel = this.getOwnerComponent().getModel("employee");
-            employeeId = oEvent.getParameter("arguments").employeeId;
-            console.log("EmployeeId", employeeId);
+            const employeeId = oEvent.getParameter("arguments").employeeId;
 
             // Bind the view to the employee entity
             oView.bindElement({
@@ -42,39 +83,24 @@ sap.ui.define([
             }
         },
 
-        onCalculateSalary: async function () {
-            try {
-                const oView = this.getView();
-                const model = oView.getModel("employee");
+        onCalculateSalary: function () {
+            const oModel = this.getView().getModel("employee");
+            const oContext = this.getView().getBindingContext("employee");
+            const employeeId = oContext.getProperty("ID");
 
-                // 🔹 Create a context for the bound action
-                const oAction = model.bindContext("/calculateSalary(...)");
-
-                // 🔹 Set the required action parameter
-                oAction.setParameter("employeeId", employeeId);
-
-                // 🔹 Invoke the action
-                await oAction.invoke();
-
-                // 🔹 Get the result (returned salary)
-                const result = oAction.getBoundContext().getObject();
-                const salary = result.value;
-                console.log("Calculated Salary:", salary);
-
-                // 🔹 Manually update the salary field in the UI model
-                const oEmpContext = oView.getBindingContext("employee");
-                if (oEmpContext) {
-                    oEmpContext.setProperty("salary", salary);
+            oModel.callFunction("/calculateSalary", {
+                method: "POST",
+                urlParameters: {
+                    employeeId: employeeId
+                },
+                success: function (oData) {
+                    MessageToast.show("Calculated Salary: $$" + oData.value);
+                },
+                error: function () {
+                    MessageToast.show("Failed to calculate salary.");
                 }
-
-                MessageToast.show("Calculated Salary: $" + salary);
-
-            } catch (err) {
-                console.error("Salary calculation failed:", err);
-                MessageBox.error("Failed to calculate salary.");
-            }
-        }
-        ,
+            });
+        },
 
         onNavBack: function () {
             const oHistory = History.getInstance();

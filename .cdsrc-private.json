@@ -7,8 +7,8 @@
           "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
           "org": "36207be8trial",
           "space": "dev",
-          "instance": "OJT_JAVA_2-db",
-          "key": "OJT_JAVA_2-db-key"
+          "instance": "OJT_JAVA_2-hana",
+          "key": "SharedDevKey"
         },
         "kind": "hana",
         "vcap": {
