@@ -66,25 +66,46 @@
                     <Column hAlign="Center">
                         <Text text="Department" />
                     </Column>
-                    <Column hAlign="Center" width="15rem">
+                    <Column
+                        hAlign="Center"
+                        width="15rem"
+                    >
                         <Text text="Name" />
                     </Column>
-                    <Column hAlign="Center" width="20rem">
+                    <Column
+                        hAlign="Center"
+                        width="20rem"
+                    >
                         <Text text="Email" />
                     </Column>
-                    <Column hAlign="Center" width="8rem">
+                    <Column
+                        hAlign="Center"
+                        width="8rem"
+                    >
                         <Text text="Role" />
                     </Column>
-                    <Column hAlign="Center" width="8rem">
+                    <Column
+                        hAlign="Center"
+                        width="8rem"
+                    >
                         <Text text="Gender" />
                     </Column>
-                    <Column hAlign="Center" width="8rem">
+                    <Column
+                        hAlign="Center"
+                        width="8rem"
+                    >
                         <Text text="Date Of Birth" />
                     </Column>
-                    <Column hAlign="Center" width="8rem">
+                    <Column
+                        hAlign="Center"
+                        width="8rem"
+                    >
                         <Text text="Hire Date" />
                     </Column>
-                    <Column hAlign="Center" width="8rem">
+                    <Column
+                        hAlign="Center"
+                        width="8rem"
+                    >
                         <Text text="Salary" />
                     </Column>
                     <Column hAlign="Center">
@@ -123,6 +144,20 @@
                 press=".onRemoveEmployee"
             /> -->
         </VBox>
+        <Button
+            text="Export to Excel"
+            press=".onExportToExcel"
+        />
+        <u:FileUploader
+            id="fileUploader"
+            uploadOnChange="false"
+            change="onFileChange"
+            placeholder="Choose Excel/CSV file (.xlsx/.csv)"
+        />
+        <Button
+            text="Import File"
+            press=".uploadFileStream"
+        />
         <footer>
             <Toolbar>
                 <ToolbarSpacer />

@@ -24,3 +24,7 @@ entity Employees : cuid {
   role       : Association to Roles;
   department : Association to Departments;
 }
+
+entity UploadedCSV: cuid {
+  content: LargeBinary @Core.MediaType: 'text/csv'; 
+}
